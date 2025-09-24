@@ -1,4 +1,6 @@
+// src/app/profile/page.js
 "use client";
+
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -6,17 +8,15 @@ export default function ProfileLogin() {
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(""); // для регистрации с email
   const [mode, setMode] = useState("login"); // login / register
   const [error, setError] = useState("");
-  const [checkedUser, setCheckedUser] = useState(false); // чтобы рендер был разовый
 
   useEffect(() => {
+    // Если пользователь уже есть в localStorage, редиректим
     const user = JSON.parse(localStorage.getItem("user"));
     if (user?.username) {
-      router.replace(`/profile/${user.username}`); // replace чтобы не возвращаться на логин
-    } else {
-      setCheckedUser(true); // показываем форму только если нет пользователя
+      router.push(`/profile/${user.username}`);
     }
   }, [router]);
 
@@ -34,14 +34,12 @@ export default function ProfileLogin() {
         setError("Неверный логин или пароль");
         return;
       }
-      // Сохраняем текущего пользователя
       localStorage.setItem(
         "user",
         JSON.stringify({ username, avatar: users[username].avatar, email: users[username].email })
       );
-      router.replace(`/profile/${username}`); // редирект один раз
+      router.push(`/profile/${username}`);
     } else {
-      // Регистрация
       if (users[username]) {
         setError("Пользователь уже существует");
         return;
@@ -50,11 +48,9 @@ export default function ProfileLogin() {
       users[username] = { password, email, avatar };
       localStorage.setItem("users", JSON.stringify(users));
       localStorage.setItem("user", JSON.stringify({ username, avatar, email }));
-      router.replace(`/profile/${username}`);
+      router.push(`/profile/${username}`);
     }
   };
-
-  if (!checkedUser) return null; // пока проверяем пользователя – не рендерим ничего
 
   return (
     <div className="auth-page fade-in">
