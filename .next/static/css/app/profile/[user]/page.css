@@ -1,0 +1,174 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[3]!./src/styles/profile.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+/* src/styles/profile.css */
+
+/* Контейнер профиля */
+.profile-container {
+  max-width: 1200px;
+  margin: 120px auto 60px auto;
+  padding: 32px;
+  background: linear-gradient(145deg, #1c1233, #2a1f4c);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  color: #e0dff5;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Верхняя часть профиля */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Аватар */
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 3px solid #f06261;
+  position: relative;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Наведение на аватарку */
+.profile-avatar:hover::after {
+  content: 'Сменить аватарку';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(240, 98, 97, 0.8);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  padding: 4px 0;
+  border-radius: 0 0 50% 50%;
+}
+
+/* Основная информация */
+.profile-info h2 {
+  margin: 0 0 8px 0;
+  font-size: 32px;
+}
+
+.profile-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.profile-buttons button {
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #f06261, #a958a5);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+/* Достижения */
+.achievements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.achievement-card {
+  flex: 1 1 200px;
+  background: #2a1f4c;
+  padding: 16px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.achievement-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.achievement-card h4 {
+  margin: 0 0 8px 0;
+}
+
+/* Списки аниме */
+.anime-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-gap: 16px;
+  gap: 16px;
+}
+
+.anime-card {
+  background-color: #1a1134;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.anime-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.anime-card p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #e0dff5;
+}
+
+.anime-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* Посты пользователя */
+.post-card {
+  background-color: #2a1f4c;
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+.post-card p {
+  margin: 0 0 8px 0;
+}
+
+.post-card button {
+  padding: 6px 12px;
+  background: #f06261;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+.post-card button:hover {
+  opacity: 0.9;
+}
+
